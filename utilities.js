@@ -18,3 +18,10 @@ window.addEventListener('keyup', function (e) {
     delete keys[e.keyCode];
     frogger.moving = false;
 });
+
+function scored() {
+    score++;
+    gameSpeed += 0.05;
+    frogger.x = canvas.width / 2 - frogger.width / 2;
+    frogger.y = canvas.height - frogger.height - 40;
+}

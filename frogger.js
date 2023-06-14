@@ -40,7 +40,11 @@ class Frogger {
                 this.moving = true;
             }
         }
+        if (this.y < 0) {
+            scored();
+        }
     }
+
     draw() {
         ctx3.fillStyle = 'green';
         ctx3.fillRect(this.x, this.y, this.width, this.height);
