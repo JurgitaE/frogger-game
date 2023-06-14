@@ -13,8 +13,30 @@ class Frogger {
     update() {
         // console.log('update');
         if (keys[38]) {
+            //up
             if (this.moving === false) {
                 this.y -= grid;
+                this.moving = true;
+            }
+        }
+        if (keys[40]) {
+            //down
+            if (this.y < canvas.height - this.height * 2 && this.moving === false) {
+                this.y += grid;
+                this.moving = true;
+            }
+        }
+        if (keys[37]) {
+            //left
+            if (this.x > this.width && this.moving === false) {
+                this.x -= grid;
+                this.moving = true;
+            }
+        }
+        if (keys[39]) {
+            //right
+            if (canvas.width - this.x - this.width > this.width && this.moving === false) {
+                this.x += grid;
                 this.moving = true;
             }
         }
