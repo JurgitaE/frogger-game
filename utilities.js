@@ -55,8 +55,8 @@ function handleScoreBoard() {
 // Collision detection between two rectangles
 function collision(first, second) {
     return !(
-        first.x > second.x + second.width ||
-        first.x + first.width < second.x ||
+        first.x > second.x + second.width - 10 ||
+        first.x + first.width - 10 < second.x ||
         first.y > second.y + second.height ||
         first.y + first.height < second.y
     );
