@@ -29,7 +29,7 @@ let keys = [];
 let score = 0;
 let collissionsCount = 0;
 let frame = 0;
-const initSpeed = 1;
+const initSpeed = 0.5;
 let gameSpeed = initSpeed;
 let safe = false;
 
