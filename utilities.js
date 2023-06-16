@@ -49,3 +49,21 @@ function handleScoreBoard() {
     ctx4.strokeText(`Collisions: ${collissionsCount}`, 10, 175);
     ctx4.strokeText(`Game Speed: ${gameSpeed.toFixed(1)}`, 10, 195);
 }
+
+// Collision detection between two rectangles
+function collision(first, second) {
+    return !(
+        first.x > second.x + second.width ||
+        first.x + first.width < second.x ||
+        first.y > second.y + second.height ||
+        first.y + first.height < second.y
+    );
+}
+
+function resetGame() {
+    frogger.x = canvas.width / 2 - frogger.width / 2;
+    frogger.y = canvas.height - frogger.height - 40;
+    score = 0;
+    collissionsCount++;
+    gameSpeed = 1;
+}

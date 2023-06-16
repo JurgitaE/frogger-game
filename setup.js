@@ -43,3 +43,6 @@ background_lvl2.src = './resources/background_lvl2.png';
 
 const grass = new Image();
 grass.src = './resources/grass.png';
+
+const collisions = new Image();
+collisions.src = './resources/collisions.png';
