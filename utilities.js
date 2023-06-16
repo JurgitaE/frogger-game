@@ -29,11 +29,12 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function (e) {
     delete keys[e.keyCode];
     frogger.moving = false;
+    frogger.frameX = 0;
 });
 
 function scored() {
     score++;
-    gameSpeed += 0.05;
+    gameSpeed += 0.05 * initSpeed;
     frogger.x = canvas.width / 2 - frogger.width / 2;
     frogger.y = canvas.height - frogger.height - 40;
 }
@@ -66,5 +67,5 @@ function resetGame() {
     frogger.y = canvas.height - frogger.height - 40;
     score = 0;
     collissionsCount++;
-    gameSpeed = 0.5;
+    gameSpeed = initSpeed;
 }
