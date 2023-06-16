@@ -32,7 +32,7 @@ class Frogger {
         if (keys[37]) {
             //left
             if (this.x > this.width && this.moving === false) {
-                this.x -= grid;
+                this.x -= grid / 2;
                 this.moving = true;
                 this.frameY = 2;
             }
@@ -40,7 +40,7 @@ class Frogger {
         if (keys[39]) {
             //right
             if (canvas.width - this.x - this.width > this.width && this.moving === false) {
-                this.x += grid;
+                this.x += grid / 2;
                 this.moving = true;
                 this.frameY = 1;
             }
