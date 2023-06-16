@@ -13,6 +13,7 @@ function animate() {
     handleObstacles();
     handleScoreBoard();
     ctx4.drawImage(grass, 0, 0, canvas.width, canvas.height);
+    frame++;
     requestAnimationFrame(animate);
 }
 
@@ -65,5 +66,5 @@ function resetGame() {
     frogger.y = canvas.height - frogger.height - 40;
     score = 0;
     collissionsCount++;
-    gameSpeed = 1;
+    gameSpeed = 0.5;
 }

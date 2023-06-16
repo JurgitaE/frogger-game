@@ -29,7 +29,7 @@ let keys = [];
 let score = 0;
 let collissionsCount = 0;
 let frame = 0;
-let gameSpeed = 1;
+let gameSpeed = 0.5;
 
 const particlesArray = [];
 const maxParticles = 300;
@@ -46,3 +46,14 @@ grass.src = './resources/grass.png';
 
 const collisions = new Image();
 collisions.src = './resources/collisions.png';
+
+const turtle = new Image();
+turtle.src = './resources/turtles.png';
+
+const log = new Image();
+log.src = './resources/log.png';
+
+const car = new Image();
+car.src = './resources/cars.png';
+
+let numberCars = 30;

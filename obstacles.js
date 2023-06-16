@@ -6,10 +6,26 @@ class Obstacle {
         this.height = height;
         this.speed = speed;
         this.type = type;
+        this.frameX = 0;
+        this.frameY = 0;
+        this.randomise = Math.floor(Math.random() * 30 + 30);
     }
     draw() {
-        ctx3.fillStyle = 'blue';
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        if (this.type === 'turtle') {
+            if (frame % this.randomise === 0) {
+                if (this.frameX >= 1) {
+                    this.frameX = 0;
+                } else {
+                    this.frameX++;
+                }
+            }
+            ctx1.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height);
+        } else if (this.type === 'log') {
+            ctx1.drawImage(log, this.x, this.y, this.width, this.height);
+        } else {
+            ctx3.fillStyle = 'blue';
+            ctx3.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
     update() {
         this.x += this.speed * gameSpeed;
@@ -59,15 +75,13 @@ function handleObstacles() {
     for (let i = 0; i < carsArray.length; i++) {
         carsArray[i].draw();
         carsArray[i].update();
-        // logsArray[i].draw();
-        // logsArray[i].update();
     }
     for (let i = 0; i < logsArray.length; i++) {
         logsArray[i].draw();
         logsArray[i].update();
     }
-    // Collision with cars
 
+    // Collision with cars
     for (let i = 0; i < carsArray.length; i++) {
         if (collision(frogger, carsArray[i])) {
             ctx4.drawImage(collisions, 0, 100, 100, 100, frogger.x, frogger.y, 150, 150);
