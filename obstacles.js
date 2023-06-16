@@ -9,6 +9,7 @@ class Obstacle {
         this.frameX = 0;
         this.frameY = 0;
         this.randomise = Math.floor(Math.random() * 30 + 30);
+        this.carType = Math.floor(Math.random() * numberCars);
     }
     draw() {
         if (this.type === 'turtle') {
@@ -23,8 +24,17 @@ class Obstacle {
         } else if (this.type === 'log') {
             ctx1.drawImage(log, this.x, this.y, this.width, this.height);
         } else {
-            ctx3.fillStyle = 'blue';
-            ctx3.fillRect(this.x, this.y, this.width, this.height);
+            ctx2.drawImage(
+                car,
+                this.frameX * this.width,
+                this.carType * this.height,
+                grid * 2,
+                grid,
+                this.x,
+                this.y,
+                this.width,
+                this.height
+            );
         }
     }
     update() {
@@ -32,10 +42,13 @@ class Obstacle {
         if (this.speed > 0) {
             if (this.x > canvas.width + this.width) {
                 this.x = 0 - this.width;
+                this.carType = Math.floor(Math.random() * numberCars);
             }
         } else {
+            this.frameX = 1;
             if (this.x < 0 - this.width) {
                 this.x = canvas.width + this.width;
+                this.carType = Math.floor(Math.random() * numberCars);
             }
         }
     }
