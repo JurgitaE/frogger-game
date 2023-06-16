@@ -1,8 +1,8 @@
 class Frogger {
     constructor() {
-        this.spritewidth = 250;
+        this.spriteWidth = 250;
         this.spriteHeight = 250;
-        this.width = this.spritewidth / 5;
+        this.width = this.spriteWidth / 5;
         this.height = this.spriteHeight / 5;
         this.x = canvas.width / 2 - this.width / 2;
         this.y = canvas.height - this.height - 40;
@@ -17,6 +17,8 @@ class Frogger {
             if (this.moving === false) {
                 this.y -= grid;
                 this.moving = true;
+                this.frameX = 1;
+                this.frameY = 0;
             }
         }
         if (keys[40]) {
@@ -24,6 +26,7 @@ class Frogger {
             if (this.y < canvas.height - this.height * 2 && this.moving === false) {
                 this.y += grid;
                 this.moving = true;
+                this.frameY = 3;
             }
         }
         if (keys[37]) {
@@ -31,6 +34,7 @@ class Frogger {
             if (this.x > this.width && this.moving === false) {
                 this.x -= grid;
                 this.moving = true;
+                this.frameY = 2;
             }
         }
         if (keys[39]) {
@@ -38,6 +42,7 @@ class Frogger {
             if (canvas.width - this.x - this.width > this.width && this.moving === false) {
                 this.x += grid;
                 this.moving = true;
+                this.frameY = 1;
             }
         }
         if (this.y < 0) {
@@ -46,11 +51,26 @@ class Frogger {
     }
 
     draw() {
-        ctx3.fillStyle = 'green';
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        // ctx3.fillStyle = 'green';
+        // ctx3.fillRect(this.x, this.y, this.width, this.height);
+        ctx3.drawImage(
+            froggerSprite,
+            this.frameX * this.spriteWidth,
+            this.frameY * this.spriteHeight,
+            this.spriteWidth,
+            this.spriteHeight,
+            this.x - this.width / 2,
+            this.y - this.height / 2,
+            this.width * 2,
+            this.height * 2
+        );
     }
     jump() {
-        console.log('jump');
+        if (this.moving == false) {
+            this.frameX = 1;
+        } else if (this.frameX === 1) {
+            this.frameX = 0;
+        }
     }
 }
 
