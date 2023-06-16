@@ -11,8 +11,8 @@ function animate() {
     frogger.draw();
     frogger.update();
     handleObstacles();
-    handleScoreBoard();
     ctx4.drawImage(grass, 0, 0, canvas.width, canvas.height);
+    handleScoreBoard();
     frame++;
     requestAnimationFrame(animate);
 }
@@ -50,6 +50,12 @@ function handleScoreBoard() {
     ctx4.font = '15px Verdana';
     ctx4.strokeText(`Collisions: ${collissionsCount}`, 10, 175);
     ctx4.strokeText(`Game Speed: ${gameSpeed.toFixed(1)}`, 10, 195);
+
+    ctx4.fillStyle = 'black';
+    ctx4.fillRect(0, canvas.height - 20, 120, 20);
+    ctx4.strokeStyle = 'white';
+    ctx4.font = '15px Verdana';
+    ctx4.strokeText(`Best: ${localStorage.getItem(storageKey)}`, 0, canvas.height);
 }
 
 // Collision detection between two rectangles

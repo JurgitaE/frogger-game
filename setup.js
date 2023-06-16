@@ -62,3 +62,7 @@ let numberCars = 3;
 
 const froggerSprite = new Image();
 froggerSprite.src = './resources/frog_spritesheet.png';
+
+const storageKey = 'bestScore';
+
+if (!localStorage.getItem(storageKey)) localStorage.setItem(storageKey, 0);

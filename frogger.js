@@ -47,6 +47,9 @@ class Frogger {
         }
         if (this.y < 0) {
             scored();
+            if (+localStorage.getItem(storageKey) < score) {
+                localStorage.setItem(storageKey, score);
+            }
         }
     }
 
