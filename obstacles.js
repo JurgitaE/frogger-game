@@ -107,7 +107,7 @@ function handleObstacles() {
 
         for (let i = 0; i < logsArray.length; i++) {
             if (collision(frogger, logsArray[i])) {
-                frogger.x += logsArray[i].speed;
+                frogger.x += logsArray[i].speed * gameSpeed;
                 safe = true;
             }
         }
